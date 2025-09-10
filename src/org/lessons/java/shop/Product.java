@@ -7,33 +7,72 @@ import java.util.Random;
 public class Product {
 
     //proprietà
-    public int codice;
-    public String nome;
-    public String descrizione;
-    public BigDecimal prezzo;
-    public BigDecimal iva;
+    private int codice;
+    private String nome;
+    private String marca;
+    private BigDecimal prezzo;
+    private BigDecimal iva;
+
+    //costruttore vuoto
+    public Product ( ){
+
+        Random rand = new Random();
+        this.codice = rand.nextInt(99999);
+        this.nome = "Nessun nome";
+        this.marca = "Nessuna marca";
+        this.prezzo = new BigDecimal("0");
+        this.iva = new BigDecimal("0");
+    } 
 
     //costruttore
-    public Product ( String nome, String descrizione, BigDecimal prezzo , BigDecimal iva    ){
+    public Product ( String nome, String marca, BigDecimal prezzo , BigDecimal iva    ){
 
         Random rand = new Random();
         this.codice = rand.nextInt(99999);
         this.nome = nome;
-        this.descrizione = descrizione;
+        this.marca = marca;
         this.prezzo = prezzo;
         this.iva = iva.divide(new BigDecimal("100"),2 ,RoundingMode.HALF_UP );
     } 
 
     //metodi
-    public int getCode(){
+    public int getCodice(){
         return this.codice;
     }
 
-    public BigDecimal getBasePrice(){
+    public String getNome(){
+        return this.nome;
+    }
+
+    public void setNome(String nome){
+        this.nome = nome;
+    }
+
+    public String getMarca(){
+        return this.marca;
+    }
+
+    public void setMarca(String marca){
+        this.marca = marca;
+    }
+
+    public BigDecimal getPrezzoBase(){
         return this.prezzo;
     } 
 
-     public BigDecimal getIvaPrice(){
+    public void setPrezzoBase(BigDecimal prezzo){
+        this.prezzo = prezzo;
+    }
+
+    public BigDecimal getIva(){
+        return this.iva;
+    }
+
+    public void setIva(BigDecimal iva){
+        this.iva = iva.divide(new BigDecimal("100"),2 ,RoundingMode.HALF_UP );
+    }
+
+    public BigDecimal getPrezzoIvato(){
         if(prezzo != null && iva != null){
             return this.prezzo.add(this.prezzo.multiply(iva)).setScale(2, RoundingMode.DOWN);
         }
