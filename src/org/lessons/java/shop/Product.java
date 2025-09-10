@@ -16,8 +16,8 @@ public class Product {
     //costruttore
     public Product ( String nome, String descrizione, BigDecimal prezzo , BigDecimal iva    ){
 
-        Random rand = new Random(99999);
-        this.codice = rand.nextInt();
+        Random rand = new Random();
+        this.codice = rand.nextInt(99999);
         this.nome = nome;
         this.descrizione = descrizione;
         this.prezzo = prezzo;
