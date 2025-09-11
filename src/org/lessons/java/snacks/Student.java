@@ -43,7 +43,8 @@ public class Student {
      }
 
      public String getString (){
-        return(this.name + " " + this.surname + ", " + this.age + " anni");
+        // return(this.name + " " + this.surname + ", " + this.age + " anni");
+        return String.format( "%s %s, %d anni", this.name , this.surname, this.age);
      }
 
 }
