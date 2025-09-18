@@ -9,7 +9,7 @@ public class Student {
     private int age;
 
     //constructor
-    Student(String name , String surname, int age){
+    public Student(String name , String surname, int age){
 
         this.name = name;
         this.surname =surname;

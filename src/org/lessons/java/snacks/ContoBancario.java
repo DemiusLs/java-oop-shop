@@ -10,7 +10,7 @@ public class ContoBancario {
 
     //costruttore
 
-    ContoBancario(String numeroConto ){
+    public ContoBancario(String numeroConto ){
         this.numeroConto = numeroConto;
         saldo = new BigDecimal(0);
     }
